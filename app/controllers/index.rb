@@ -7,8 +7,10 @@ end
 
 get '/:short_url' do
   @key = params[:short_url]
-  link = Link.find_by_key("#{@key}").long_url
-  redirect "http://#{link}"
+  @link_object = Link.find_by_key("#{@key}")
+  @link_object.redirect_counter
+  link = @link_object.long_url
+  redirect "#{link}"
 end
 
 #POST ========================================
