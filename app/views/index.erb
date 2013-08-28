@@ -3,6 +3,15 @@
   <input type="submit" value="SHORTEN!">
 </form>
 
+
+10 Most Recent Shortened Links:
+<br>
 <body class="placeholder">
- <!-- Link.last(10) --> short url -->
+  <%links = Link.last(10)%>
+  <% links.each do |link| %>
+    <p>
+    <a href="/<%=link.key%>">localhost:9393/<%= link.key %></a>
+    </p>
+
+  <% end %>
 </body>
