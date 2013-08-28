@@ -16,9 +16,14 @@ end
 #POST ========================================
 
 post '/urls' do
-  @long_url = params[:long_url]
-  @key = Link.build_key
-  params[:key] = @key
-  new_link = Link.create(params)
-  erb :shorten_url
+  valid_url = validate_format(params[:long_url])
+  if validate_url(valid_url)
+    params[:long_url] = valid_url
+    @key = Link.build_key
+    params[:key] = @key
+    new_link = Link.create(params)
+    erb :shorten_url
+  else
+    redirect '/'
+  end
 end

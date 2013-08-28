@@ -9,10 +9,8 @@ def validate_format(string)
 end
 
 
-
 def validate_url(string)
-  url = validate_format(string)
-  uri = URI.parse(url)
+  uri = URI.parse(string)
   begin
     Net::HTTP.get_response(uri)
     return true
@@ -28,6 +26,7 @@ end
 # p validate_format("google")
 
 
-p validate_url("http://google.com")
-p validate_url("google.com")
-p validate_url("google")
+# p validate_url("http://google.com")
+# p validate_url("google.com")
+# p validate_url("google")
+
