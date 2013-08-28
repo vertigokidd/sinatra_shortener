@@ -1,5 +1,3 @@
-require 'net/http'
-
 def validate_format(string)
   if string =~ /https?:\/\/?/
     return string

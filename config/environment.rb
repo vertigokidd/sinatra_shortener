@@ -9,6 +9,7 @@ require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 require 'rubygems'
 
 require 'uri'
+require 'net/http'
 require 'pathname'
 
 require 'pg'
@@ -19,6 +20,7 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 
 require 'erb'
+
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
